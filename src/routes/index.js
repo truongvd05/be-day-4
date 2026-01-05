@@ -1,0 +1,9 @@
+const express = require("express");
+
+const router = express.Router();
+
+const postRoute = require("@/routes/posts.route");
+
+router.use("/posts", postRoute);
+
+module.exports = router;
