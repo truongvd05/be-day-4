@@ -1,7 +1,5 @@
 const notFoundHandler = (_, res) => {
-    return res.status(404).json({
-        message: "Resource not found",
-    });
+    return res.error(404, "Resource not found");
 };
 
-module.exports = notFoundHandler;
+export default notFoundHandler;

@@ -1,12 +1,12 @@
-require("dotenv").config();
-require("module-alias/register");
+import "dotenv/config";
 
-var express = require("express");
-var cors = require("cors");
-const appRoute = require("@/routes");
-const responseFormat = require("./src/middlewares/responseFormat");
-const notFoundHandler = require("./src/middlewares/notFoundHandler");
-const exceptionHandler = require("./src/middlewares/exceptionHandler");
+import express from "express";
+import cors from "cors";
+import router from "#routes/index.js";
+import responseFormat from "#middlewares/responseFormat.js";
+import notFoundHandler from "#middlewares/notFoundHandler.js";
+import exceptionHandler from "#middlewares/exceptionHandler.js";
+
 var app = express();
 
 const port = process.env.PORT || 3000;
@@ -31,7 +31,7 @@ let corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(responseFormat);
-app.use("/api", appRoute);
+app.use("/api", router);
 app.use(notFoundHandler);
 app.use(exceptionHandler);
 

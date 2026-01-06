@@ -1,8 +1,5 @@
 const exceptionHandler = (err, _, res, next) => {
-    res.status(err.status || 500).json({
-        status: "error",
-        message: err.message || "Internal server error",
-    });
+    res.error(500, err.message, err);
 };
 
-module.exports = exceptionHandler;
+export default exceptionHandler;

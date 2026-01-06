@@ -1,9 +1,9 @@
-const express = require("express");
+import express from "express";
 
 const router = express.Router();
 
-const postRoute = require("@/routes/posts.route");
+import postRoute from "./posts.route.js";
 
 router.use("/posts", postRoute);
 
-module.exports = router;
+export default router;

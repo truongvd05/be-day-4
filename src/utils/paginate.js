@@ -1,4 +1,4 @@
-module.exports = async (model, page = 1, perPage = 10, user_id) => {
+const paginate = async (model, page = 1, perPage = 10, user_id) => {
     const offset = (page - 1) * perPage;
 
     const rows = await model.findAll(perPage, offset, user_id);
@@ -18,3 +18,5 @@ module.exports = async (model, page = 1, perPage = 10, user_id) => {
         pagination,
     };
 };
+
+export default paginate;

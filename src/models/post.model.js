@@ -1,4 +1,4 @@
-const { default: pool } = require("@/config/database");
+import pool from "../config/database.js";
 
 const findAll = async (limit, offset, user_id) => {
     let sql = `SELECT * FROM posts`;
@@ -28,7 +28,4 @@ const count = async (user_id) => {
     return rows[0].total;
 };
 
-module.exports = {
-    findAll,
-    count,
-};
+export default { findAll, count };

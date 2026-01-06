@@ -1,5 +1,5 @@
-const postmodel = require("@/models/post.model");
-const paginate = require("@/utils/paginate");
+import postmodel from "../models/post.model.js";
+import paginate from "../utils/paginate.js";
 
 class PostService {
     async pagination(page, user_id) {
@@ -7,4 +7,4 @@ class PostService {
     }
 }
 
-module.exports = new PostService();
+export default new PostService();

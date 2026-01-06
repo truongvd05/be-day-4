@@ -1,9 +1,13 @@
-const postService = require("@/service/post.service");
+import postService from "../service/post.service.js";
 
-const getAll = async (req, res) => {
+const getAll = async (req, res, next) => {
     const { page, user_id } = req.query;
-    const result = await postService.pagination(page, user_id);
-    res.paginate(result);
+    try {
+        const result = await postService.pagination(page, user_id);
+        res.paginate(result);
+    } catch (err) {
+        next(err);
+    }
 };
 
-module.exports = { getAll };
+export default { getAll };
